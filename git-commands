@@ -1,0 +1,270 @@
+git init
+
+git config --global user.name "Polarapu Prasad"
+git config --global user.email "devopstraining2015@gmail.com"
+
+git config --list
+
+git config --global --unset user.name
+git config --global --unset user.email
+
+git config --list
+
+==========================
+git clone https://github.com/polarapu/batch98.git
+ls
+cd batch98
+touch file1
+ls
+git status
+git add file1
+git status
+git commit -m "label" file
+git status
+git log
+git show
+
+git show cid
+
+git push
+
+=======================
+touch file2 file3 file4 file5
+ls
+git status
+git add file2 file3 file4 file5
+or
+git add .
+or 
+git add -A
+or
+git add *
+
+git status
+
+git commit -m "label"
+git status
+
+git log
+
+=====================
+touch
+=====
+touch file1
+ls
+touch file2 file3
+
+CAT
+===
+cat > file4
+.....
+.....
+ctrl+d
+
+ls
+
+cat file4
+
+cat >> file4
+.....
+.....
+ctrl+d
+
+VI
+==
+vi file5
+--------
+esc i
+....
+....
+....
+
+esc :w!
+    :q!
+or
+esc :wq!
+
+============
+rm file1  (to delete a file)
+ls
+git status
+git add file1
+git status
+git commit -m "deleted file1"
+git status
+git log
+q
+git push
+
+===========================
+mkdir dir1
+ls
+cd dir1
+touch f1 f2
+cd ..
+git add dir1
+git status
+git commit -m "sample dir commit"
+git push
+
+===========
+
+mkdir dir2
+ls
+cd dir2
+touch f1 f2
+cd ..
+
+or
+
+mkdir dir2
+ls
+touch dir2/f1 
+touch dir/f2 dir2/f3
+
+git add dir2/f1
+git status
+
+==============
+
+cd dir2
+rm f2
+cd ..
+
+or
+
+rm dir2/f2
+
+rmdir dir  (to delete empty dir)
+rm -rf dir  
+
+========================
+Branch
+======
+git branch
+git branch release1
+git branch
+
+git checkout release1
+
+git merge main or release1
+
+git branch -d release1  (to delete branch on local)
+
+git push origin release1  (to upload branch into c-repo)
+or
+git push /path/repo release1
+
+release1
+----------
+git push
+
+.git/config
+-----------
+[branch "release1"]
+	remote = origin
+	merge = refs/heads/release1
+
+gitpush
+
+git push origin -d release1  (to delete branch on central)
+
+Conflicts
+==========
+git merge --abort
+
+------------------------------------------
+
+Log's
+=====
+git log
+git log -n
+git log --oneline
+git log --oneline -n
+git log --author=name
+git log --author=name -n
+git log --author=name --oneline
+git log --author=name --oneline -n
+
+git log --since=yy-mm-dd
+or
+git log --after=yy-mm-dd
+
+git log --until=yy-mm-dd
+or
+git log --before=yy-mm-dd
+
+git log --since=yy-mm-dd --until=yy-mm-dd
+or
+git log --after=yy-mm-dd --before=yy-mm-dd
+
+
+git log --since="yy-mm-dd 10:00" --until="yy-mm-dd 23:00"
+
+git log --since="yy-mm-dd 10:00" --until="yy-mm-dd 23:00" -n
+git log --since="yy-mm-dd 10:00" --until="yy-mm-dd 23:00" --oneline
+git log --since="yy-mm-dd 10:00" --until="yy-mm-dd 23:00" --oneline -n
+
+git log --since="yy-mm-dd 10:00" --until="yy-mm-dd 23:00" --author=name
+
+git log --grep "label"
+
+git log -- file file-name
+git log -- file file-name --author=name
+
+
+Stash
+=====
+git stash save "stash1"
+git stash list
+git stash show stash@{x}
+git stash show -p stash@{x}
+
+POP, APPLY, DROP
+================
+
+POP = cut
+===
+git stash pop
+git stash pop stash@{x}
+
+Apply = Copy
+=====
+git stash apply
+git stash apply stash@{x}
+
+Drop  = Delete
+====
+git stash drop
+git stash drop stash@{x}
+============================
+git push
+git pull --rebase
+ls
+git push
+git pull --rebase
+git push
+
+Alias
+=====
+git status
+git config --global alias.s "status"
+git s
+
+git log --oneline
+git config --global alias.l1 "log --oneline"
+git l1
+
+git stash list
+git config --global alias.sl "stash list"
+git sl
+
+git config --list
+git config --global alias.cl "config --list"
+git cl
+
+git commit -m "Test-commit"
+git config --global alias.cmt "commit -m "test-commit""
+git cmt
+
+git config --global --unset alias.cl
